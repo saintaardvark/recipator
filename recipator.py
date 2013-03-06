@@ -1,4 +1,4 @@
-import ConfigParser
+from configobj import ConfigObj, ConfigObjError
 from texttable import Texttable
 from cmath import e
 
