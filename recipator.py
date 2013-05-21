@@ -26,6 +26,7 @@ class Recipator:
         self.cgrav = 1.00
 
         self.init_tables()
+        # FIXME: Use configobj.walk instead of these.
         self.parse_general()
         self.parse_grains()
         self.parse_hops()
