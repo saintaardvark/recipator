@@ -51,18 +51,17 @@ class Recipator:
         print self.hop_shop.draw()
 
     def parse_general(self):
-        if not self.parser.has_section(self.general_sect):
-            print "No general section!"
-            print "Recipe file is misconfigured!  See example recipe file for format details."
-            exit(1)
-        self.brew_name = self.parser.get(self.general_sect, "Brew Name")
-        self.batch_size = float(self.parser.get(self.general_sect, "Batch Size"))
-        self.efficiency = float(self.parser.get(self.general_sect,
-                                                "Mash Efficiency").strip())
-        self.target_gravity = float(self.parser.get(self.general_sect,
-                                                    "Target Gravity").strip())
-        self.target_ibu = float(self.parser.get(self.general_sect,
-                                                "Target IBU").strip())
+        # I don't *think* this should be necessary; errors will get caught by the import up top.
+        # if not self.parser.has_section(self.general_sect):
+        #     print "No general section!"
+        #     print "Recipe file is misconfigured!  See example recipe file for format details."
+        #     exit(1)
+        self.brew_name = self.config['General']['Brew Name']
+        print "FIXME: Brew name is |%s|" % self.brew_name
+        self.batch_size = self.config['General']['Batch Size']
+        self.efficiency = self.config['General']['Mash Efficiency']
+        self.target_gravity = self.config['General']['Target Gravity']
+        self.target_ibu = self.config['General']['Target IBU']
 
         # Calculate total GUs needed in the recipe
         self.total_gus = self.batch_size * self.target_gravity
