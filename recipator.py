@@ -90,11 +90,12 @@ class Recipator:
                                    ["Total Gravity", total_gravity]])
 
     def parse_grains(self):
-        if not self.parser.has_section(self.grain_sect):
-            print "No grain section!"
-            print "Recipe file is misconfigured!  See example recipe file for format details."
-            exit(1)
-        grains = self.parser.options(self.grain_sect)
+        # I don't *think* this should be necessary; errors will get caught by the import up top.
+        # if not self.parser.has_section(self.grain_sect):
+        #     print "No grain section!"
+        #     print "Recipe file is misconfigured!  See example recipe file for format details."
+        #     exit(1)
+        grains = self.config['Grain Bill']
         # will be [grain, weight (lb), weight (gm), mcu]
         grain_bill = []
 
