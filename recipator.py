@@ -9,6 +9,7 @@ from cmath import e
 class Recipator:
     def __init__(self, filename="recipe1.conf"):
         config = ConfigObj(filename, file_error=True, configspec="recipespec.ini")
+        self.config = ConfigObj(filename, file_error=True, configspec="recipespec.ini")
         # except (ConfigObjError, IOError), e:
         #     print 'Could not read "%s": %s' % (filename, e)
         #     exit(1)
