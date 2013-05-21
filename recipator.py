@@ -1,4 +1,5 @@
 from configobj import ConfigObj, ConfigObjError
+from validate import Validator
 from texttable import Texttable
 from cmath import e
 
@@ -8,8 +9,9 @@ from cmath import e
 
 class Recipator:
     def __init__(self, filename="recipe1.conf"):
-        config = ConfigObj(filename, file_error=True, configspec="recipespec.ini")
+        val = Validator()
         self.config = ConfigObj(filename, file_error=True, configspec="recipespec.ini")
+        self.config.validate(val)
         # except (ConfigObjError, IOError), e:
         #     print 'Could not read "%s": %s' % (filename, e)
         #     exit(1)
