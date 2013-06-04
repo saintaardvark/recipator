@@ -106,6 +106,11 @@ class Recipator:
             vals = [float(i.strip()) for i in vals]
             perc, nom, lov = vals
 
+            perc, nom, lov = self.config['Grain Bill'][grain]
+            print "Type of perc is %s" % otype(perc)
+            print "Type of nom is %s" % type(nom)
+            print type(self.total_gus)
+            print type(self.efficiency)
             weight = perc * self.total_gus / (self.efficiency * nom)
             mcu = weight * lov / (self.batch_size)
 
