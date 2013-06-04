@@ -104,10 +104,11 @@ class Recipator:
             # vals are percentage of fermentables, Nominal GUs, Lovibond
             vals = self.parser.get(self.grain_sect, grain).split(",")
             vals = [float(i.strip()) for i in vals]
+            vals = [float(i.strip()) for i in grains[grain]]
             perc, nom, lov = vals
 
-            perc, nom, lov = self.config['Grain Bill'][grain]
-            print "Type of perc is %s" % otype(perc)
+            # perc, nom, lov = self.config['Grain Bill'][grain]
+            print "Type of perc is %s" % type(perc)
             print "Type of nom is %s" % type(nom)
             print type(self.total_gus)
             print type(self.efficiency)
