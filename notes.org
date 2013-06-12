@@ -3,3 +3,8 @@
   - Some changes: s/:/=/; diff in use of parser obj/config obj
   - *Hoping* that validation will pay off -- the configspec.ini seems
     particularly nice.
+* Ingred parsing
+  - I *believe* we can get rid of the checking for syntax; this should
+    be handled by configobj.
+* Hop parsing
+  - How to handle the "name - time" part of things?
