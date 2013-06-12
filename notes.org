@@ -1,0 +1,5 @@
+* Try using ConfigObj
+  - http://www.voidspace.org.uk/python/articles/configobj.shtml
+  - Some changes: s/:/=/; diff in use of parser obj/config obj
+  - *Hoping* that validation will pay off -- the configspec.ini seems
+    particularly nice.
