@@ -102,7 +102,7 @@ class Recipator:
 
         for grain in grains:
             # vals are percentage of fermentables, Nominal GUs, Lovibond
-            vals = self.parser.get(self.grain_sect, grain).split(",")
+            vals = self.config['Grain Bill'][grain]
             vals = [float(i.strip()) for i in vals]
             vals = [float(i.strip()) for i in grains[grain]]
             perc, nom, lov = vals
