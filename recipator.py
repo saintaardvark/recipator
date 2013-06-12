@@ -176,18 +176,14 @@ class Recipator:
         aroma_ibus  = sum([i[-1] for i in hops])
         aroma_ibus_tinseth = sum([i[-1] for i in hops_tinseth])
 
-        if not self.parser.has_section(self.bittering_sect):
-            print "No bittering hop section!  (Even if it's empty, it's needed.)"
-            print "Recipe file is misconfigured!  See example recipe file for format details."
-            exit(1)
-        hop_names = self.parser.options(self.bittering_sect)
+        hop_names = self.config['Bittering Hops']
         needed_ibu = self.target_ibu - aroma_ibus
         needed_ibu_tinseth = self.target_ibu - aroma_ibus_tinseth
 
         for hop in hop_names:
             hop_name, boil_time = [i.strip() for i in hop.split("-")]
             # alpha acid % (by weight), utilization, % remaining IBUs
-            vals = self.parser.get(self.bittering_sect, hop).split(",")
+            vals = self.config['Bittering Hops'][hop]
             vals = [float(i.strip()) for i in vals]
             alpha, util, perc = vals
 
