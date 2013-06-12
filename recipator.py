@@ -149,11 +149,11 @@ class Recipator:
 
         # Start with the aroma hops
         for hop in hop_names:
+            vals = self.config['Aroma Hops'][hop]
             hop_name, boil_time = [i.strip() for i in hop.split("-")]
             boil_time = float(boil_time.strip())
             key = "{0} {1} min".format(hop_name, boil_time)
-            # vals are weight, alpha acid % (by weight), utilization, 
-            vals = self.parser.get(self.aroma_sect, hop).split(",")
+            # vals are weight, alpha acid % (by weight), utilization,
             vals = [float(i.strip()) for i in vals]
             weight, alpha, util = vals
 
