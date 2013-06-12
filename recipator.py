@@ -141,7 +141,7 @@ class Recipator:
             print "No aroma hop section!  (Even if it's empty, it's needed.)"
             print "Recipe file is misconfigured!  See example recipe file for format details."
             exit(1)
-        hop_names = self.parser.options(self.aroma_sect)
+        hop_names = self.config['Aroma Hops']
         # will be [boil (min), hop name, AA%, weight (oz), weight (gm), util,
         # IBU contr.]
         hops = []
